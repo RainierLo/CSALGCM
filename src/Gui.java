@@ -184,7 +184,7 @@ public class Gui extends JFrame{
         spring.putConstraint(SpringLayout.WEST, add, -170, SpringLayout.EAST, root);
         //Position Radio Buttons
         spring.putConstraint(SpringLayout.NORTH, greedy, 375, SpringLayout.NORTH, root);
-        spring.putConstraint(SpringLayout.WEST, greedy, 23, SpringLayout.WEST, root);
+        spring.putConstraint(SpringLayout.WEST, greedy, 15, SpringLayout.WEST, root);
         spring.putConstraint(SpringLayout.NORTH, dynamic, 375, SpringLayout.NORTH, root);
         spring.putConstraint(SpringLayout.WEST, dynamic, 180, SpringLayout.WEST, root);
         //Position the CONFIRM button
