@@ -144,7 +144,7 @@ public class MealPlan {
     }
 
     /**
-     * Solves the fractional knapsack problem using the greedy algorithm method
+     * Solves the 0/1 knapsack problem using the greedy algorithm method
      * 
      * @param log is the area where the text will be displayed in the GUI
      */
