@@ -93,7 +93,6 @@ public class MealPlan {
                 dynamicAlgo(log);
             }
         });
-
         // Clears the textarea and the list
         clear.addActionListener(e -> {
             clear();
@@ -175,12 +174,9 @@ public class MealPlan {
         while (i < n && weight < W) {
             if (weight + w[i] <= W) { // if adding the current weight of the item to the current total weight would
                                       // not exceed the maximum weight
-                x[i] = 1; // include the whole item
-            } else {
-                x[i] = ((W - weight) / (float) w[i]); // get the fractional part of the item that would accomodate the
-                                                      // maximum weight.
+                weight = weight + w[i];
+                x[i] = 1;
             }
-            weight = weight + (x[i] * w[i]); // update total weight
             i++;
         }
 
@@ -197,10 +193,10 @@ public class MealPlan {
         // Print the output in the log if the ratio is > 0
         for (float r : x) {
             if (r != 0) {
-                text = String.format("%s: %6.2f g | %6.2f calories\n", foodNames[i], (v[i] * r), (w[i] * r));
+                text = String.format("%s: %6d g | %6d calories\n", foodNames[i], v[i], w[i]);
                 log.append(text);
-                totalGrams += (v[i] * r);
-                totalCalories += (w[i] * r);
+                totalGrams += v[i];
+                totalCalories += w[i];
             }
             i++;
         }
@@ -327,15 +323,26 @@ public class MealPlan {
         // remove comment to test clear button
         // bring back comment after testing clear button
         MealPlan app = new MealPlan();
-        FoodItem one = new FoodItem("Chicken", 100, 250);
-        FoodItem two = new FoodItem("Pork", 250, 300);
-        FoodItem three = new FoodItem("Pasta", 50, 125);
-        FoodItem four = new FoodItem("Apple", 25, 100);
-
+        FoodItem one = new FoodItem("Short Ribs Beef", 150, 707);
+        FoodItem two = new FoodItem("Rice", 200, 260);
+        FoodItem three = new FoodItem("Bacon", 12, 65);
+        FoodItem four = new FoodItem("Banana", 100, 89);
+        FoodItem five = new FoodItem("Ice cream", 100, 207);
+        FoodItem six = new FoodItem("Fried Chicken (Thigh)", 120, 212);
+        FoodItem seven = new FoodItem("Fish Fillet", 150, 348);
+        FoodItem eight = new FoodItem("Chow mein", 100, 459);
+        FoodItem nine = new FoodItem("Cake", 120, 308);
+        FoodItem ten = new FoodItem("French Fries", 250, 780);
         app.addItem(one, app.getTextArea());
         app.addItem(two, app.getTextArea());
         app.addItem(three, app.getTextArea());
         app.addItem(four, app.getTextArea());
+        app.addItem(five, app.getTextArea());
+        app.addItem(six, app.getTextArea());
+        app.addItem(seven, app.getTextArea());
+        app.addItem(eight, app.getTextArea());
+        app.addItem(nine, app.getTextArea());
+        app.addItem(ten, app.getTextArea());
     }
 
 }
